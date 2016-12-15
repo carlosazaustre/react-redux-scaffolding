@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, browserHistory } from 'react-router';
 
 import 'materialize-css/dist/css/materialize.css';
+import routes from './routes';
 
-const App = () => {
-  return (
-    <div>
-      <h1>Hola Mundo!</h1>
-    </div>
-  );
-};
-
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <Router history={browserHistory} routes={routes} />,
+  document.getElementById('app')
+);
