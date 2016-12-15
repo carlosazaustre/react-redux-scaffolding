@@ -5,6 +5,7 @@
         "browsers": ["last 5 versions", "safari >= 7", "ie >=9"]
       }
     }],
-    "react"
+    "react",
+    "stage-2"
   ]
 }

@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const PurifyCssPlugin = require('purifycss-webpack-plugin');
 
 module.exports = {
   extensions: ['', '.js'],
@@ -32,6 +33,7 @@ module.exports = {
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
     new HtmlWebpackPlugin({ template: path.join(__dirname, 'src', 'index.html') }),
     new ExtractTextPlugin('styles.css'),
+    new PurifyCssPlugin(path.join(__dirname, 'src'), '/index.js'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin()
   ],
