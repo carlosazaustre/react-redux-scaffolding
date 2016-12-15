@@ -8,7 +8,7 @@ const Header = ({ appName }) => {
         <div className="container">
           <a href="/" className="brand-logo">{appName}</a>
           <ul className="right hide-on-med-and-down">
-            <li><Link to="/">Main</Link></li>
+            <li><Link to="/">ToDos</Link></li>
             <li><Link to="/section">Section</Link></li>
           </ul>
         </div>
