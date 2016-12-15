@@ -1,6 +1,8 @@
 # react-redux-scaffolding
 
-My personal starter-kit for React-Redux web applications
+>My personal starter-kit for React-Redux web applications
+
+Work in progress...
 
 ## Features
 * **ESLint** based in Airbnb JavaScript Styleguide
