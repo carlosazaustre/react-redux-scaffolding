@@ -8,7 +8,11 @@
     }
   },
   "rules": {
+    "no-undef": 0,
     "comma-dangle": 0,
-    "import/no-extraneous-dependencies": 0
+    "arrow-body-style": 0,
+    "space-before-function-paren": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/jsx-filename-extension": 0
   }
 }
