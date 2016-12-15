@@ -4,7 +4,14 @@
   "description": "personal starter-kit for react-redux web applications",
   "main": "dist/bundle.js",
   "scripts": {
-    "test": "ava"
+    "test": "cross-env NODE_ENV=test ava",
+    "test:watch": "npm run test -- --watch",
+    "serve": "webpack-dev-server",
+    "clean": "rimraf ./dist && mkdir dist",
+    "start": "npm-run-all --parallel serve test:watch",
+    "prebuild": "npm-run-all clean test",
+    "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.prod.js",
+    "postbuild": "cross-env NODE_ENV=production webpack-dev-server --config webpack.config.prod.js",
   },
   "repository": {
     "type": "git",
