@@ -6,23 +6,29 @@ import {
 } from './types';
 
 // -- Action creators
-export function createTodoSuccess (todo) {
+export function createTodo (todo) {
   return { type: CREATE_TODO_SUCCESS, payload: todo };
 }
 
-export function deleteTodoSuccess (todo) {
+export function deleteTodo (todo) {
   return { type: DELETE_TODO_SUCCESS, payload: todo };
 }
 
-export function updateTodoSuccess (todo) {
+export function updateTodo (todo) {
   return { type: UPDATE_TODO_SUCCESS, payload: todo };
 }
 
-export function getTodosSuccess (todos) {
-  return { type: GET_TODOS_SUCCESS, payload: todos };
+export function getTodosSuccess () {
+  return { type: GET_TODOS_SUCCESS };
 }
 
-// -- Async Thunks
+export function getTodos () {
+  return (dispatch) => {
+    dispatch(getTodos());
+  };
+}
+
+/* -- Async Thunks
 export function createTodo (todo) {
   return (dispatch) => {
     dispatch(createTodoSuccess(todo));
@@ -39,10 +45,4 @@ export function deleteTodo (todo) {
   return (dispatch) => {
     dispatch(deleteTodoSuccess(todo));
   };
-}
-
-export function getTodos () {
-  return (dispatch) => {
-    dispatch(getTodos());
-  };
-}
+} */
