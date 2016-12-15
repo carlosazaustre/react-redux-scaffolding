@@ -4,12 +4,14 @@ import { Link } from 'react-router';
 const Header = ({ appName }) => {
   return (
     <nav>
-      <div className="nav-wrapper">
-        <a href="/" className="brand-logo">{appName}</a>
-        <ul className="right hide-on-med-and-down">
-          <li><Link to="/">Main</Link></li>
-          <li><Link to="/section">Section</Link></li>
-        </ul>
+      <div className="nav-wrapper blue darken-4">
+        <div className="container">
+          <a href="/" className="brand-logo">{appName}</a>
+          <ul className="right hide-on-med-and-down">
+            <li><Link to="/">Main</Link></li>
+            <li><Link to="/section">Section</Link></li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

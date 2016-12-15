@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const Footer = ({ copyRightText }) => {
   return (
-    <footer className="page-footer">
+    <footer className="page-footer blue-grey darken-3">
       <div className="container">
         <div className="row">
           <div className="col l6 s12">
@@ -20,7 +20,7 @@ const Footer = ({ copyRightText }) => {
           </div>
         </div>
       </div>
-      <div className="footer-copyright">
+      <div className="footer-copyright blue-grey darken-4">
         <div className="container">
         © 2016 {copyRightText} All rights reserved
         <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
@@ -35,7 +35,7 @@ Footer.propTypes = {
 };
 
 Footer.defaultProps = {
-  copyRightText: 'Evil Corp, Inc.'
+  copyRightText: 'App Name, Inc.'
 };
 
 export default Footer;
