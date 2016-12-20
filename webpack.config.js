@@ -2,7 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  extensions: ['', '.js'],
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   devTool: 'cheap-module-eval-source-map',
   noInfo: false,
   target: 'web',
@@ -10,7 +12,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client',
     'webpack/hot/only-dev-server',
-    './src/index.js'
+    './src/index.jsx'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -20,7 +22,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel'] },
+      { test: /\.jsx?$/, include: path.join(__dirname, 'src'), loaders: ['babel'] },
       { test: /\.css$/, loaders: ['style', 'css?sourceMap'] },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loaders: ['file'] },
       { test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000' },

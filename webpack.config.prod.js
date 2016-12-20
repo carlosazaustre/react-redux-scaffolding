@@ -5,7 +5,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PurifyCssPlugin = require('purifycss-webpack-plugin');
 
 module.exports = {
-  extensions: ['', '.js'],
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   devTool: 'source-map',
   noInfo: false,
   target: 'web',
@@ -19,7 +21,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel'] },
+      { test: /\.jsx?$/, include: path.join(__dirname, 'src'), loaders: ['babel'] },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap') },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loaders: ['file'] },
       { test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000' },

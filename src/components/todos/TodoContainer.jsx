@@ -3,33 +3,44 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as todoActions from '../../actions/todoActions';
-import Todo from './Todo';
+import TodoList from './TodoList';
 
 class TodoContainer extends React.Component {
-  constructor (props, context) {
-    super(props, context);
+  constructor (props) {
+    super(props);
+
+    this.handleRemoveTask = this.handleRemoveTask.bind(this);
+    this.handleDoneTask = this.handleDoneTask.bind(this);
   }
 
   async componentDidMount () {
     await this.props.actions.getTodos();
   }
 
+  handleRemoveTask (event) {
+    console.log('Remove');
+  }
+
+  handleDoneTask (event) {
+    console.log('Done!');
+  }
+
   render () {
     const { todos } = this.props;
 
     return (
-      <div>
-        {todos.map(todo => (
-          <span>{todo.title}</span>
-        ))}
-      </div>
+      <TodoList
+        todos={todos}
+        onRemoveTask={this.handleRemoveTask}
+        onDoneTask={this.handleDoneTask}
+      />
     );
   }
 }
 
 TodoContainer.propTypes = {
-  todos: PropTypes.array,
-  actions: PropTypes.object
+  todos: PropTypes.arrayOf(PropTypes.object),
+  actions: PropTypes.objectOf(PropTypes.func)
 };
 
 function mapStateToProps (state) {
