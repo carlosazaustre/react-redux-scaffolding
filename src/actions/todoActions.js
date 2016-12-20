@@ -1,48 +1,20 @@
-import {
-  CREATE_TODO_SUCCESS,
-  DELETE_TODO_SUCCESS,
-  UPDATE_TODO_SUCCESS,
-  GET_TODOS_SUCCESS
-} from './types';
+import API from '../api';
+import { GET_TODOS_SUCCESS } from './types';
 
 // -- Action creators
-export function createTodo (todo) {
-  return { type: CREATE_TODO_SUCCESS, payload: todo };
+export function getTodosSuccess (todos) {
+  return {
+    type: GET_TODOS_SUCCESS,
+    payload: todos
+  };
 }
 
-export function deleteTodo (todo) {
-  return { type: DELETE_TODO_SUCCESS, payload: todo };
-}
-
-export function updateTodo (todo) {
-  return { type: UPDATE_TODO_SUCCESS, payload: todo };
-}
-
-export function getTodosSuccess () {
-  return { type: GET_TODOS_SUCCESS };
-}
-
+// -- Thunk Async Action Dispatchers
 export function getTodos () {
-  return (dispatch) => {
-    dispatch(getTodos());
+  return async (dispatch) => {
+    const todos = await API.todos.getList();
+    dispatch(getTodosSuccess(todos));
+
+    return todos;
   };
 }
-
-/* -- Async Thunks
-export function createTodo (todo) {
-  return (dispatch) => {
-    dispatch(createTodoSuccess(todo));
-  };
-}
-
-export function updateTodo (todo) {
-  return (dispatch) => {
-    dispatch(updateTodoSuccess(todo));
-  };
-}
-
-export function deleteTodo (todo) {
-  return (dispatch) => {
-    dispatch(deleteTodoSuccess(todo));
-  };
-} */

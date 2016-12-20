@@ -1,4 +1,1 @@
-export const CREATE_TODO_SUCCESS = 'CREATE_TODO';
-export const DELETE_TODO_SUCCESS = 'DELETE_TODO';
-export const UPDATE_TODO_SUCCESS = 'UPDATE_TODO';
 export const GET_TODOS_SUCCESS = 'GET_TODOS';

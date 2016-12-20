@@ -1,11 +1,26 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["last 5 versions", "safari >= 7", "ie >=9"]
-      }
-    }],
-    "react",
-    "stage-2"
-  ]
+    "es2016",
+    "es2017",
+    "react"
+  ],
+  "plugins": [
+    "transform-es2015-modules-commonjs"
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-regenerator",
+        "transform-runtime"
+      ],
+      "presets": [
+        "es2015",
+      ]
+    },
+    "development": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
 }

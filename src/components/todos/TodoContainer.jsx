@@ -1,11 +1,17 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
 import * as todoActions from '../../actions/todoActions';
+import Todo from './Todo';
 
 class TodoContainer extends React.Component {
   constructor (props, context) {
     super(props, context);
+  }
+
+  async componentDidMount () {
+    await this.props.actions.getTodos();
   }
 
   render () {
@@ -13,7 +19,9 @@ class TodoContainer extends React.Component {
 
     return (
       <div>
-        <span>Hello World!</span>
+        {todos.map(todo => (
+          <span>{todo.title}</span>
+        ))}
       </div>
     );
   }

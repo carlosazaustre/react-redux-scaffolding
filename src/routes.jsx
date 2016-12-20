@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from './components/App';
-import TodoContainer from './components/todo/TodoContainer';
+import TodoContainer from './components/todos/TodoContainer';
 import SectionContainer from './components/section/SectionContainer';
 
 export default (
