@@ -14,7 +14,7 @@ class TodoContainer extends React.Component {
   }
 
   async componentDidMount () {
-    await this.props.actions.getTodos();
+    await this.props.actions.loadTodos();
   }
 
   handleRemoveTask (event) {

@@ -1,20 +1,19 @@
-import API from '../api';
-import { GET_TODOS_SUCCESS } from './types';
+import { LOAD_TODOS, CREATE_TODO } from './types';
 
-// -- Action creators
-export function getTodosSuccess (todos) {
+let nextTodoId = 3;
+
+export function loadTodos () {
   return {
-    type: GET_TODOS_SUCCESS,
-    payload: todos
+    type: LOAD_TODOS
   };
 }
 
-// -- Thunk Async Action Dispatchers
-export function getTodos () {
-  return async (dispatch) => {
-    const todos = await API.todos.getList();
-    dispatch(getTodosSuccess(todos));
-
-    return todos;
+export function addTodo (text) {
+  return {
+    type: CREATE_TODO,
+    payload: {
+      id: nextTodoId++,
+      text
+    }
   };
 }
