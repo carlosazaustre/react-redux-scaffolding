@@ -27,8 +27,8 @@ class TodoContainer extends React.Component {
     await this.props.actions.deleteTodo(todoId);
   }
 
-  handleCompleteTask (event) {
-    console.log('Done!');
+  async handleCompleteTask (todoId) {
+    await this.props.actions.updateTodo(todoId);
   }
 
   render () {
@@ -42,7 +42,7 @@ class TodoContainer extends React.Component {
         <TodoList
           todos={todos}
           onDeleteTask={this.handleDeleteTask}
-          onDoneTask={this.handleCompleteTask}
+          onCompleteTask={this.handleCompleteTask}
         />
       </div>
     );

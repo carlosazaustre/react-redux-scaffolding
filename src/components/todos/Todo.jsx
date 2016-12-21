@@ -6,6 +6,11 @@ function Todo ({ id, text, completed, onDeleteTask, onCompleteTask }) {
     onDeleteTask(id);
   };
 
+  const onComplete = (event) => {
+    event.preventDefault();
+    onCompleteTask(id);
+  };
+
   return (
     <li className="collection-item avatar">
       <i className="material-icons circle blue darken-4">
@@ -17,7 +22,7 @@ function Todo ({ id, text, completed, onDeleteTask, onCompleteTask }) {
           <i className="material-icons">delete</i>
         </span>
       ) : (
-        <span onClick={onCompleteTask} className="secondary-content">
+        <span onClick={onComplete} className="secondary-content">
           <i className="material-icons">done</i>
         </span>
       )}

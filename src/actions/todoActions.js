@@ -1,4 +1,8 @@
-import { LOAD_TODOS, CREATE_TODO, DELETE_TODO } from './types';
+import {
+  LOAD_TODOS,
+  UPDATE_TODO,
+  CREATE_TODO,
+  DELETE_TODO } from './types';
 
 let nextTodoId = 3;
 
@@ -15,6 +19,13 @@ export function addTodo (text) {
       id: nextTodoId++,
       text
     }
+  };
+}
+
+export function updateTodo (todoId) {
+  return {
+    type: UPDATE_TODO,
+    payload: todoId
   };
 }
 
