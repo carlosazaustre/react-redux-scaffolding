@@ -20,6 +20,7 @@ export function addTodo (text) {
 
 export function deleteTodo (todoId) {
   return {
-    type: DELETE_TODO
+    type: DELETE_TODO,
+    payload: todoId
   };
 }

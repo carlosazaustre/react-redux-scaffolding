@@ -2,14 +2,14 @@ import React, { PropTypes } from 'react';
 
 import Todo from './Todo';
 
-function TodoList ({ todos, onRemoveTask, onDoneTask }) {
+function TodoList ({ todos, onDeleteTask, onCompleteTask }) {
   return (
     <ul className="collection">
       {todos.map(todo => (
         <Todo
           key={todo.id}
-          onRemoveTask={onRemoveTask}
-          onDoneTask={onDoneTask}
+          onDeleteTask={onDeleteTask}
+          onCompleteTask={onCompleteTask}
           {...todo}
         />
       ))}
@@ -19,8 +19,8 @@ function TodoList ({ todos, onRemoveTask, onDoneTask }) {
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object),
-  onRemoveTask: PropTypes.func,
-  onDoneTask: PropTypes.func
+  onDeleteTask: PropTypes.func,
+  onCompleteTask: PropTypes.func
 };
 
 export default TodoList;

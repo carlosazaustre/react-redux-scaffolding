@@ -1,6 +1,11 @@
 import React, { PropTypes } from 'react';
 
-function Todo ({ text, completed, onRemoveTask, onCompleteTask }) {
+function Todo ({ id, text, completed, onDeleteTask, onCompleteTask }) {
+  const onDelete = (event) => {
+    event.preventDefault();
+    onDeleteTask(id);
+  };
+
   return (
     <li className="collection-item avatar">
       <i className="material-icons circle blue darken-4">
@@ -8,7 +13,7 @@ function Todo ({ text, completed, onRemoveTask, onCompleteTask }) {
       </i>
       <span className="title">{text}</span>
       {completed ? (
-        <span onClick={onRemoveTask} className="secondary-content">
+        <span onClick={onDelete} className="secondary-content">
           <i className="material-icons">delete</i>
         </span>
       ) : (
@@ -21,9 +26,10 @@ function Todo ({ text, completed, onRemoveTask, onCompleteTask }) {
 }
 
 Todo.propTypes = {
+  id: PropTypes.number,
   text: PropTypes.string,
   completed: PropTypes.bool,
-  onRemoveTask: PropTypes.func,
+  onDeleteTask: PropTypes.func,
   onCompleteTask: PropTypes.func
 };
 

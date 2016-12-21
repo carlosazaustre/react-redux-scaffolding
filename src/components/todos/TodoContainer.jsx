@@ -10,7 +10,7 @@ class TodoContainer extends React.Component {
   constructor (props) {
     super(props);
 
-    this.handleRemoveTask = this.handleRemoveTask.bind(this);
+    this.handleDeleteTask = this.handleDeleteTask.bind(this);
     this.handleCompleteTask = this.handleCompleteTask.bind(this);
     this.handleAddTask = this.handleAddTask.bind(this);
   }
@@ -23,8 +23,8 @@ class TodoContainer extends React.Component {
     await this.props.actions.addTodo(text);
   }
 
-  handleRemoveTask (event) {
-    console.log('Remove!');
+  async handleDeleteTask (todoId) {
+    await this.props.actions.deleteTodo(todoId);
   }
 
   handleCompleteTask (event) {
@@ -41,7 +41,7 @@ class TodoContainer extends React.Component {
         />
         <TodoList
           todos={todos}
-          onRemoveTask={this.handleRemoveTask}
+          onDeleteTask={this.handleDeleteTask}
           onDoneTask={this.handleCompleteTask}
         />
       </div>
