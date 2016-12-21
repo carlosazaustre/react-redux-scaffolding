@@ -4,24 +4,30 @@ import { connect } from 'react-redux';
 
 import * as todoActions from '../../actions/todoActions';
 import TodoList from './TodoList';
+import TodoInput from './TodoInput';
 
 class TodoContainer extends React.Component {
   constructor (props) {
     super(props);
 
     this.handleRemoveTask = this.handleRemoveTask.bind(this);
-    this.handleDoneTask = this.handleDoneTask.bind(this);
+    this.handleCompleteTask = this.handleCompleteTask.bind(this);
+    this.handleAddTask = this.handleAddTask.bind(this);
   }
 
   async componentDidMount () {
     await this.props.actions.loadTodos();
   }
 
-  handleRemoveTask (event) {
-    console.log('Remove');
+  async handleAddTask (text) {
+    await this.props.actions.addTodo(text);
   }
 
-  handleDoneTask (event) {
+  handleRemoveTask (event) {
+    console.log('Remove!');
+  }
+
+  handleCompleteTask (event) {
     console.log('Done!');
   }
 
@@ -29,11 +35,16 @@ class TodoContainer extends React.Component {
     const { todos } = this.props;
 
     return (
-      <TodoList
-        todos={todos}
-        onRemoveTask={this.handleRemoveTask}
-        onDoneTask={this.handleDoneTask}
-      />
+      <div>
+        <TodoInput
+          onAddTask={this.handleAddTask}
+        />
+        <TodoList
+          todos={todos}
+          onRemoveTask={this.handleRemoveTask}
+          onDoneTask={this.handleCompleteTask}
+        />
+      </div>
     );
   }
 }

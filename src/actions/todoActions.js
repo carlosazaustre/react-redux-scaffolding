@@ -1,4 +1,4 @@
-import { LOAD_TODOS, CREATE_TODO } from './types';
+import { LOAD_TODOS, CREATE_TODO, DELETE_TODO } from './types';
 
 let nextTodoId = 3;
 
@@ -15,5 +15,11 @@ export function addTodo (text) {
       id: nextTodoId++,
       text
     }
+  };
+}
+
+export function deleteTodo (todoId) {
+  return {
+    type: DELETE_TODO
   };
 }
