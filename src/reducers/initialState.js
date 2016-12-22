@@ -1,11 +1,20 @@
-export default {
-  todos: [{
+import { fromJS } from 'immutable';
+
+export default fromJS({
+  todos: {}
+});
+
+/**
+todos:{
+  1: {
     id: 1,
-    text: 'The first Task to do',
+    text: 'First Task',
     completed: false
-  }, {
+  },
+  2: {
     id: 2,
-    text: 'This is a second thing to do',
+    text: 'A second Task',
     completed: true
-  }]
-};
+  }
+}
+ */

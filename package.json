@@ -63,6 +63,7 @@
     "react-addons-test-utils": "^15.4.1",
     "redux-devtools-extension": "^1.0.0",
     "redux-immutable-state-invariant": "^1.2.4",
+    "redux-logger": "^2.7.4",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "stylelint": "^7.6.0",
@@ -73,6 +74,7 @@
     "webpack-hot-middleware": "^2.13.2"
   },
   "dependencies": {
+    "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "materialize-css": "^0.97.8",
     "react": "^15.4.1",
@@ -81,6 +83,7 @@
     "react-router": "^3.0.0",
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
+    "redux-immutable": "^3.0.9",
     "redux-thunk": "^2.1.0"
   }
 }

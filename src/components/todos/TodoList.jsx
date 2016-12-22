@@ -7,10 +7,10 @@ function TodoList ({ todos, onDeleteTask, onCompleteTask }) {
     <ul className="collection">
       {todos.map(todo => (
         <Todo
-          key={todo.id}
+          key={todo.get('id')}
           onDeleteTask={onDeleteTask}
           onCompleteTask={onCompleteTask}
-          {...todo}
+          {...todo.toJS()}
         />
       ))}
     </ul>
@@ -18,7 +18,7 @@ function TodoList ({ todos, onDeleteTask, onCompleteTask }) {
 }
 
 TodoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.object),
+  todos: PropTypes.objectOf(PropTypes.object),
   onDeleteTask: PropTypes.func,
   onCompleteTask: PropTypes.func
 };
