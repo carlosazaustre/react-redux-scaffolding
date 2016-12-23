@@ -12,13 +12,16 @@ function TodoList ({ todos, onDeleteTask, onCompleteTask }) {
           onCompleteTask={onCompleteTask}
           {...todo.toJS()}
         />
-      ))}
+      )).toArray()}
     </ul>
   );
 }
 
 TodoList.propTypes = {
-  todos: PropTypes.objectOf(PropTypes.object),
+  todos: PropTypes.shape({
+    size: PropTypes.number,
+    get: PropTypes.func
+  }),
   onDeleteTask: PropTypes.func,
   onCompleteTask: PropTypes.func
 };

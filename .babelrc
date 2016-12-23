@@ -2,7 +2,8 @@
   "presets": [
     "es2016",
     "es2017",
-    "react"
+    "react",
+    "stage-2"
   ],
   "plugins": [
     "transform-es2015-modules-commonjs"

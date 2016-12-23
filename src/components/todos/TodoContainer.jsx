@@ -7,6 +7,13 @@ import TodoList from './TodoList';
 import TodoInput from './TodoInput';
 
 class TodoContainer extends React.Component {
+  static propTypes = {
+    todos: PropTypes.objectOf({
+      size: PropTypes.number
+    }),
+    actions: PropTypes.objectOf(PropTypes.func)
+  }
+
   constructor (props) {
     super(props);
 
@@ -48,11 +55,6 @@ class TodoContainer extends React.Component {
     );
   }
 }
-
-TodoContainer.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.object),
-  actions: PropTypes.objectOf(PropTypes.func)
-};
 
 function mapStateToProps (state) {
   return {
